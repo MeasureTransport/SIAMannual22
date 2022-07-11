@@ -18,5 +18,4 @@ dependencies:
 - git 
 - eigen 
 - gxx 
-- libhwloc
 
