@@ -15,6 +15,7 @@ cmake -DCMAKE_INSTALL_PREFIX=~/.installations/Kokkos \
           -DKokkos_ENABLE_OPENMP=ON \
           -DBUILD_SHARED_LIBS=ON    \
           -DKokkos_CXX_STANDARD=17  \
+          -DKokkos_ENABLE_HWLOC=ON  \
 ../
 make install
 
