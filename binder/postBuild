@@ -6,7 +6,7 @@ mkdir Installations
 git clone https://github.com/kokkos/kokkos.git
 mkdir kokkos/build
 cd kokkos/build
-cmake -DCMAKE_INSTALL_PREFIX=../../Installations/Kokkos \
+cmake -DCMAKE_INSTALL_PREFIX=~/Installations/Kokkos \
           -DKokkos_ENABLE_SERIAL=ON \
           -DKokkos_ENABLE_OPENMP=ON \
           -DBUILD_SHARED_LIBS=ON    \
@@ -16,11 +16,11 @@ make install
 
 
 # Install MParT
-cd ../../
+cd ~
 git clone -b tests-option --single-branch https://github.com/MeasureTransport/MParT.git
 mkdir MParT/build
 cd MParT/build 
-cmake -DMPART_BUILD_TESTS=OFF -DKokkos_DIR=../../Installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/Installations/MParT ../
+cmake -DMPART_BUILD_TESTS=OFF -DKokkos_DIR=~/Installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/Installations/MParT ../
 make install 
 cd ../../
 
