@@ -15,6 +15,5 @@ dependencies:
 - make
 - git 
 - eigen 
-- catch2
 - gxx 
 
