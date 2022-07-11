@@ -2,11 +2,15 @@
 set -ex
 
 # Build kokkos 
-mkdir Installations 
+cd ~
+mkdir .installations 
+mkdir .work
+cd .work
+
 git clone https://github.com/kokkos/kokkos.git
 mkdir kokkos/build
 cd kokkos/build
-cmake -DCMAKE_INSTALL_PREFIX=~/Installations/Kokkos \
+cmake -DCMAKE_INSTALL_PREFIX=~/.installations/Kokkos \
           -DKokkos_ENABLE_SERIAL=ON \
           -DKokkos_ENABLE_OPENMP=ON \
           -DBUILD_SHARED_LIBS=ON    \
@@ -16,13 +20,13 @@ make install
 
 
 # Install MParT
-cd ~
+cd ~/.work
 git clone -b tests-option --single-branch https://github.com/MeasureTransport/MParT.git
 mkdir MParT/build
 cd MParT/build 
-cmake -DMPART_BUILD_TESTS=OFF -DKokkos_DIR=~/Installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/Installations/MParT ../
+cmake -DMPART_BUILD_TESTS=OFF -DKokkos_DIR=~/.installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/.installations/MParT ../
 make install 
-cd ../../
 
-# Update paths 
-export PYTHONPATH=$PYTHONPATH:${PWD}/Installations/MParT/python
+# Clean up build folders
+cd ~
+rm -rf ~/.work

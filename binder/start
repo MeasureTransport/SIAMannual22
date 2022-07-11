@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PYTHONPATH=$PYTHONPATH:~/Installations/MParT/python
+export PYTHONPATH=$PYTHONPATH:~/.installations/MParT/python
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
