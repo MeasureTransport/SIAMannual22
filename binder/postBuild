@@ -18,8 +18,8 @@ make install
 # Install MParT
 cd ../../
 git clone https://github.com/MeasureTransport/MParT.git
-mkdir mpart/build
-cd mpart/build 
+mkdir MParT/build
+cd MParT/build 
 cmake -DKokkos_DIR=../../Installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/Installations/MParT ../
 make install 
 
