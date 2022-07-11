@@ -8,6 +8,8 @@ dependencies:
 - matplotlib
 - pandas
 - python
+- scipy 
+- numpy 
 # MParT Dependencies
 - pybind11
 - eigen
