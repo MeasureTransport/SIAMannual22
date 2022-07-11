@@ -1,0 +1,27 @@
+#!/bin/bash
+set -ex
+
+# Build kokkos 
+mkdir Installations 
+git clone https://github.com/kokkos/kokkos.git
+mkdir kokkos/build
+cd kokkos/build
+cmake -DCMAKE_INSTALL_PREFIX=../../Installations/Kokkos \
+          -DKokkos_ENABLE_SERIAL=ON \
+          -DKokkos_ENABLE_OPENMP=ON \
+          -DBUILD_SHARED_LIBS=ON    \
+          -DKokkos_CXX_STANDARD=17  \
+../
+make install
+
+
+# Install MParT
+cd ../../
+git clone https://github.com/MeasureTransport/MParT.git
+mkdir mpart/build
+cd mpart/build 
+cmake -DKokkos_DIR=../../Installations/Kokkos/lib/cmake/Kokkos -DCMAKE_INSTALL_PREFIX=~/Installations/MParT ../
+make install 
+
+# Update paths 
+export PYTHONPATH=$PYTHONPATH:~/Installations/MParT/python
